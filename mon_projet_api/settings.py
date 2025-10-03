@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'produits_api',
+    'reservation',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMESSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+ 
 
 ROOT_URLCONF = 'mon_projet_api.urls'
 
